@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/animation_list"
-    tools:context=".MainActivity">
+    tools:context=".presentation.activities.MainActivity">
 
 
    <ImageView
@@ -126,9 +126,9 @@
    <androidx.cardview.widget.CardView
        android:layout_width="0dp"
        android:layout_height="wrap_content"
-       app:cardBackgroundColor="#4D000000"
+       app:cardBackgroundColor="#33000000"
        app:cardCornerRadius="15dp"
-       app:cardElevation="5dp"
+       app:cardElevation="@dimen/cardview_default_elevation"
        app:cardPreventCornerOverlap="true"
        app:cardUseCompatPadding="true"
        app:layout_constraintBottom_toBottomOf="parent"
