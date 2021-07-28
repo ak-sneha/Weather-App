@@ -98,7 +98,7 @@ class MainViewModel @Inject constructor(
             weather.collect {
                 _mutableWeatherData.value = it
                 println(it)
-                if (_mutableWeatherData.value == null || Date().time - (_mutableWeatherData.value!!.lastUpdateDate.time) > (2 * 60 * 1000)) {
+                if (_mutableWeatherData.value == null || Date().time - (_mutableWeatherData.value!!.lastUpdateDate.time) > AppConstants.TWO_HOURS) {
                     if (networkHelper.isNetworkConnected()) {
                         withContext(Dispatchers.IO) {
                             location.value?.let { pair ->

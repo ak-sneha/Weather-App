@@ -21,7 +21,7 @@ class WeatherDataMapper : Mapper<WeatherInfo<WeatherDetail>, Weather> {
                 name,
                 coord.lat,
                 coord.lon,
-                Date(dt.toLong()),
+                Date(),
                 main.temp,
                 main.tempMin,
                 main.tempMax,

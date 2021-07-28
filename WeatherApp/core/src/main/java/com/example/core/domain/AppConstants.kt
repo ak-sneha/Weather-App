@@ -6,6 +6,7 @@ class AppConstants {
 
     companion object {
 
+        const val TWO_HOURS: Int = 2 * 60 * 60 * 1000
         const val WEATHER_URL = "https://api.openweathermap.org/data/2.5/"
 
         const val KEY_LATITUDE = "lat"
