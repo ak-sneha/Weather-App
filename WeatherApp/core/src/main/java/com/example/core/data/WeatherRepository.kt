@@ -1,27 +1,28 @@
 package com.example.core.data
 
 import com.example.core.domain.AppConstants
-import com.example.core.domain.model.WeatherData
+import kotlinx.coroutines.flow.Flow
 import timber.log.Timber
-import java.util.*
 import javax.inject.Inject
 
-class WeatherRepository @Inject constructor(private val dataSource: DataSource): DataRepository {
+class WeatherRepository<T> @Inject constructor(private val dataSource: DataSource<T>): DataRepository<T> {
 
     private val tag = WeatherRepository::class.simpleName
 
-    override suspend fun getWeatherInfo(): WeatherData {
+    override suspend fun getWeatherInfo(): Flow<T> = dataSource.getWeatherData()
 
-        Timber.tag(tag).e("inside getWeatherInfo")
+    override suspend fun fetchFromServer(location: Pair<Double, Double>) {
+        Timber.tag(tag).e("inside fetchFromServer")
 
         val queryParams = mutableMapOf<String, String>().also {
-            val (latitude, longitude) = dataSource.getCurrentLocation()
-            it[AppConstants.KEY_LATITUDE] = latitude
-            it[AppConstants.KEY_LONGITUDE] = longitude
+            it[AppConstants.KEY_LATITUDE] = location.first.toString()
+            it[AppConstants.KEY_LONGITUDE] = location.second.toString()
             it[AppConstants.KEY_UNITS] = AppConstants.UNITS
             it[AppConstants.KEY_APPID] = dataSource.getApiKey()
         }
 
-        return dataSource.getWeatherData(queryParams)
+        dataSource.fetchFromServer(queryParams)
     }
+
+    override suspend fun getLocationFromDB() = dataSource.getLocationFromDB()
 }

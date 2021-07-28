@@ -1,12 +1,17 @@
 package com.example.core.data
 
 import com.example.core.domain.model.WeatherData
+import kotlinx.coroutines.flow.Flow
 
-interface DataSource {
+interface DataSource<T> {
 
     fun getApiKey() : String
 
-    suspend fun getWeatherData(queryParams: Map<String, String>): WeatherData
+//    queryParams: Map<String, String>
+    suspend fun getWeatherData(): Flow<T>
 
-    fun getCurrentLocation() : Pair<String, String>
+    suspend fun fetchFromServer(queryParam: Map<String, String>)
+
+    suspend fun getLocationFromDB(): Pair<Double, Double>
+
 }

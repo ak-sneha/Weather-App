@@ -1,8 +1,12 @@
 package com.example.core.data
 
-import com.example.core.domain.model.WeatherData
+import kotlinx.coroutines.flow.Flow
 
-interface DataRepository {
+interface DataRepository<T> {
 
-    suspend fun getWeatherInfo(): WeatherData
+    suspend fun getWeatherInfo(): Flow<T>
+
+    suspend fun fetchFromServer(location: Pair<Double, Double>)
+
+    suspend fun getLocationFromDB(): Pair<Double, Double>
 }

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="location_permission_Required">Location Permission required</string>
+    <string name="settings">Settings</string>
+    <string name="turn_gps_on">GPS is disabled in your device. Would you like to enable it?</string>
+    <string name="navigate_to_settings">Goto settings page to enable GPS</string>
+    <string name="feels_like">Feels like</string>
+    <string name="wind_unit">meter/sec</string>
+    <string name="pressure_unit">hPa</string>
+    <string name="network_error">Network not available</string>
+    <string name="location_permission_dentied">Location permission denied</string>
+    <string name="permission_request_rationale">Need location permission to get current place</string>
 </resources>

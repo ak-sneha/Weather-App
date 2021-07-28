@@ -1,5 +1,7 @@
 package com.example.core.domain
 
+import android.Manifest.permission.ACCESS_FINE_LOCATION
+
 class AppConstants {
 
     companion object {
@@ -11,5 +13,9 @@ class AppConstants {
         const val KEY_UNITS = "units"
         const val KEY_APPID = "appid"
         const val UNITS = "metric"
+
+        const val REQUEST_LOCATION_PERMISSION = 1
+
+        val locationPermission = ACCESS_FINE_LOCATION
     }
 }

@@ -2,7 +2,7 @@ package com.example.core.domain.model.remote
 
 import com.google.gson.annotations.SerializedName
 
-data class Weather (
+data class WeatherDetail (
 
    @SerializedName("id") var id : Int,
    @SerializedName("main") var main : String,
