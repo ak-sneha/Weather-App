@@ -105,6 +105,7 @@ class MainViewModel @Inject constructor(
                                 getWeatherInfo.getWeatherFromServer(
                                     location = pair
                                 )
+                                startWorkManager(context)
                             }
                         }
                     } else {
